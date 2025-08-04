@@ -39,7 +39,7 @@ class Migration(migrations.Migration):
                 ('main_image', models.ImageField(upload_to='products/main')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='products', to='mmain.category')),
+                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='products', to='main.category')),
             ],
         ),
         migrations.CreateModel(
@@ -47,7 +47,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('image', models.ImageField(upload_to='product/extra/')),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='images', to='mmain.product')),
+                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='images', to='main.product')),
             ],
         ),
         migrations.CreateModel(
@@ -55,8 +55,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('stock', models.PositiveIntegerField(default=0)),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='product_size', to='mmain.product')),
-                ('size', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='mmain.size')),
+                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='product_size', to='main.product')),
+                ('size', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main.size')),
             ],
         ),
     ]
